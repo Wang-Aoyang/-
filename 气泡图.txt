@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+
+# 示例数据
+ages = [25, 47, 35, 62, 45, 34, 52, 23, 33, 42]
+incomes = [40000, 64000, 57000, 120000, 76000, 52000, 91000, 35000, 47000, 81000]
+purchase_freqs = [5, 12, 8, 15, 9, 7, 13, 4, 10, 11]
+customers = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']  # 假设这是每个点的标识
+
+# 调整气泡大小
+bubble_sizes = [freq * 10 for freq in purchase_freqs]
+
+# 创建气泡图
+plt.figure(figsize=(20, 10))  # 设置图表大小
+plt.scatter(ages, incomes, s=bubble_sizes, alpha=0.5)  # alpha 设置气泡的透明度
+
+# 添加标签
+for i, txt in enumerate(customers):
+    plt.annotate(txt, (ages[i], incomes[i]), textcoords="offset points", xytext=(5,5), ha='center')
+
+# 添加标题和轴标签
+plt.title('Customer Data Bubble Chart')
+plt.xlabel('Age')
+plt.ylabel('Annual Income')
+
+# 显示图表
+plt.show()
